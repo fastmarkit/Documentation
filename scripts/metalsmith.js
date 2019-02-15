@@ -156,10 +156,10 @@ exports.metalsmith = function() {
         pattern: 'docs/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'robots',
-          'skills',
+          'explore',
+          'build',
           'reference',
-          'apps'
+          'guides'
         ]
       }
     }))
