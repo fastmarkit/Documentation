@@ -21,6 +21,7 @@ A skill is code you write to make Misty do something. Most skills involve some c
 
 You write skills for Misty using her on-robot JavaScript API, her REST API, or both. Code that you write with Misty's on-robot JavaScript API runs internally on Misty. Code that you write with Misty's REST API runs on an external device and exchanges data and commands with Misty over your local WiFi network.
 
+
 ## Using Misty's APIs
 
 While Misty's on-robot JavaScript and REST APIs include many of the same commands, they differ in architecture and implementation. Understanding these differences will help you choose which API to use in your skills.
@@ -52,7 +53,7 @@ In addition to commands for controlling Misty's robot capabilities, the on-robot
 
 See the [On-Robot JavaScript API reference documentation](../../../docs/reference/javascript-api) for the full list of commands.
 
-Misty's JavaScript engine supports the same features of ES6 you can use with most modern web browsers. Note, though, that when you write JavaScript to run on Misty's, there is no [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for your code to manipulate.
+Misty's JavaScript engine supports most ES6 features you can use with most modern web browsers. Note that when you write JavaScript to run on Misty's, there is no [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for your code to manipulate.
 
 Because the on-robot JavaScript API are not sent to your robot over an internet connection, you can expect Misty to respond to JavaScript API commands right away. You might use Misty's JavaScript API when you need Misty to respond to commands as soon as they execute in your code
 
