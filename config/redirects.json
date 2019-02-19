@@ -6,7 +6,6 @@
 	"/get-started": "/",
 	"/gettingstarted": "/",
 	"/getting-started": "/",
-	"/onboarding": "/docs/explore/introduction",
-	"/coding": "/docs/build/introduction",
-	"/docs/build/local-skill-tutorials": "docs/build/tutorials"
+	"/onboarding": "/docs/robots/introduction",
+	"/coding": "/docs/skills/introduction"
 }
