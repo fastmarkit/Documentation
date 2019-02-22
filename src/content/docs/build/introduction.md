@@ -7,28 +7,38 @@ order: 1
 
 # {{title}}
 
-Welcome! On this page
+This page provides a high level overview of developing skills for Misty. It describes how Misty works with your code and explores how coding a robot is different from developing for mobile or the web. Finally, it provides guidelines for sharing skills and collaborating with other devlopers in the Misty Community Skills GitHub organization.
 
-Here you will learn about skill development and the different methods you can use to code Misty. You will learn how Misty works with your code and you'll understand what makes coding a robot different from other kinds of software development. You will also be introduced to the GitHub repositories set up for skill and tool sharing.
+## Understanding Misty's Skills
 
-## What's a Skill?
-
-A skill is code you write to make Misty do something. Most skills involve some combination of the following:
+Applications you develop for the Misty platform are called **skills**. When you write a skill for Misty, you:
 
 1. take some of Misty's sensory data
 2. process that data using Misty's API or send it off to a cloud service
 3. have Misty do something in response
 
-You write skills for Misty using her on-robot JavaScript API, her REST API, or both. Code that you write with Misty's on-robot JavaScript API runs internally on Misty. Code that you write with Misty's REST API runs on an external device and exchanges data and commands with Misty over your local WiFi network.
+For example, you might write skills to have Misty do the following:
 
+* roam your office and greet people she recognizes
+* respond with movement and sound when you touch her head or chin
+* deliver an object to someone specific
+
+The first step in writing a skill for Misty is deciding what you want the skill to do. Then you can choose to write the skill using Misty's on-robot JavaScript API, her REST API, or a combination of the two. Once written, you can share your skill with other Misty developers on GitHub.
 
 ## Using Misty's APIs
 
-While Misty's on-robot JavaScript and REST APIs include many of the same commands, they differ in architecture and implementation. Understanding these differences will help you choose which API to use in your skills.
+There are two main methods you can use to write skills for Misty.
 
-### On-Robot JavaScript API
+* Use Misty's on-robot JavaScript API to write code that runs internally on Misty.
+* Use Misty's REST API to write code that runs on an external device to exchange data and commands with Misty over your local WiFi network.
 
-Code that you write with Misty's on-robot JavaScript API runs internally on the robot. To use this API, you write JavaScript in a text editor on your computer. When complete, you upload the JavaScript code file to your robot alongside a `.json` meta file with rules defining how Misty should execute the code. Learn more about file structure and code architecture [here](../../../docs/build/local-skill-architecture/#file-structure-amp-code-architecture).
+While Misty's on-robot JavaScript and REST APIs include many of the same commands, they differ in architecture and implementation. Understanding these differences will help you choose which method to use.
+
+### Misty's On-Robot JavaScript API
+
+Code that you write with Misty's on-robot JavaScript API runs internally on the robot. When you use the on-robot JavaScript API, you write your JavaScript code on your computer. Then you upload this code to your robot alongside a `.json` file with rules that define how Misty should execute the code. Learn more about file structure and code architecture [here](../../../docs/build/local-skill-architecture/#file-structure-amp-code-architecture).
+
+Misty's JavaScript engine supports most features of ES6 available in modern web browsers. Note, though, that when you write JavaScript to run on Misty's, there is no [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for your code to manipulate.
 
 The syntax for using a command in Misty's JavaScript API is:
 
@@ -42,7 +52,7 @@ So, for example, to change the color of Misty’s logo LED, you would call the `
 misty.ChangeLED(255, 0, 0);
 ```
 
-In addition to commands for controlling Misty's robot capabilities, the on-robot JavaScript API includes methods for:
+In addition to methods for using Misty's robot capabilities, the on-robot JavaScript API includes methods for:
 
 * sending debug messages
 * saving data to Misty
@@ -53,15 +63,17 @@ In addition to commands for controlling Misty's robot capabilities, the on-robot
 
 See the [On-Robot JavaScript API reference documentation](../../../docs/reference/javascript-api) for the full list of commands.
 
-Misty's JavaScript engine supports most ES6 features you can use with most modern web browsers. Note that when you write JavaScript to run on Misty's, there is no [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) for your code to manipulate.
+#### When Should I Use Misty's On-Robot JavaScript API?
 
-Because the on-robot JavaScript API are not sent to your robot over an internet connection, you can expect Misty to respond to JavaScript API commands right away. You might use Misty's JavaScript API when you need Misty to respond to commands as soon as they execute in your code
+When you use Misty's on-robot JavaScript API, commands are not sent to your robot over an internet connection. This means you can expect Misty to respond to commands immediately after they execute in your code. This is different from using Misty's REST API, where you can expect some lag between executing a command and seeing Misty respond.
 
-There are many benefits to writing code that can execute entirely on your robot. Consider using Misty's on-robot JavaScript API when you need to execute code in an environment without a reliable internet connection, or when you need Misty to react to commands without any lag time. 
+Consider using Misty's on-robot JavaScript API when
 
-Use the on-robot JavaScript API to write code that runs internally on the robot, and use Misty's REST API to write code that runs on an external device (like a desktop browser or a Raspberry Pi) and not onboard the robot.
+* you need Misty to respond to commands immediately after they execute in your code
+* you want Misty to be able to run a skill even when she doesn't have a connection to the internet
+* you are writing a skill that does not require input from a keyboard or a mouse
 
-You will learn some of what makes coding a robot different from coding other computing devices.
+### Misty's REST API
 
 You will learn about what you should consider when you're programming a robot
 
